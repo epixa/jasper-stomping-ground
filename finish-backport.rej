@@ -1,0 +1,19 @@
+REMOTE="upstream"
+BRANCH="jasper/backport/3/4.4"
+BACKPORT_SHA="e76d253cbd2cfdf19ee7ccd0c6b6aeadac5b0859"
+
+COMMIT_MSG=`cat backportmessage.rej`
+
+WORKING_BRANCH="tmp/$BRANCH"
+
+git checkout $BRANCH
+git reset --hard $WORKING_BRANCH
+git branch -D $WORKING_BRANCH
+
+git reset --soft $BACKPORT_SHA
+git stash
+git reset --hard $BACKPORT_SHA^
+git stash apply --index
+
+git commit -m "$COMMIT_MSG"
+git push -f $REMOTE $BRANCH
