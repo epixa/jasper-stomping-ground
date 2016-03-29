@@ -1,0 +1,12 @@
+#!/bin/sh
+
+REMOTE="upstream"
+BRANCH="jasper/backport/3/4.4"
+COMMIT_MSG=`cat commit-message-backport.rej`
+
+git reset --soft $REMOTE/$BRANCH
+git stash
+git reset --hard HEAD^
+git stash apply --index
+
+git commit -m "$COMMIT_MSG" --no-verify
