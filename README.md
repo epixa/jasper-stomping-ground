@@ -1,5 +1,5 @@
 # jasper-stomping-ground
 
-You DO know how bad that thing is.
+You do not even know how bad conflicts are! But right now there are none.
 
 Jasper, stop screwing around.
