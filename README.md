@@ -1,3 +1,1 @@
-# jasper-stomping-ground
-
-You don't even know how bad conflicts are!
+4.3 readme doesn't look anything like those other readmes
